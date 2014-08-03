@@ -119,8 +119,16 @@
   .collection-album-container {
      margin-top: 30px;
      margin-bottom: 20px;
-     
   }
+
+  .collection-album-container col-md-2 {
+  width: 30%;
+  height: 30%;
+  float: left;
+  display: block;
+  clear: both;
+  }
+
 
   .collection-album-container .caption {
      margin-top: 10px;
