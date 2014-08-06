@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-require("./landing");
-require("./collection");
-require('./album');
-require('./profile');
-
-=======
 //require("./landing");
 //require("./collection");
 //require('./album');
@@ -35,4 +28,4 @@ require('./profile');
 };
   
  }]);
->>>>>>> angular-landing-page
+
