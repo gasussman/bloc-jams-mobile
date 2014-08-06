@@ -293,7 +293,25 @@ require.register("scripts/album", function(exports, require, module) {
  //require('./collection');
  //require('./profile');
  
- angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+ blocJams = angular.module('BlocJams', ['ui.router']);
+ 
+ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+   $locationProvider.html5Mode(true);
+ 
+   $stateProvider.state('landing', {
+     url: '/',
+     controller: 'Landing.controller',
+     templateUrl: '/templates/landing.html'
+   })
+
+    .state('song', {
+      url: '/song',
+      controller: 'song.controller',
+      templateUrl: '/templates/song.html'
+   });
+ }]);
+
+  blocJams.controller('Landing.controller', ['$scope', function($scope) {
   $scope.title = "Bloc Jams";
   $scope.subText = "Turn the music up!";
 
@@ -319,6 +337,7 @@ require.register("scripts/album", function(exports, require, module) {
     };
 
  }]);
+
 });
 
 ;require.register("scripts/collection", function(exports, require, module) {
