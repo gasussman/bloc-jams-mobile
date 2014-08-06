@@ -1,10 +1,25 @@
-//require("./landing");
-//require("./collection");
-//require('./album');
-//require('./profile');
+ //require('./landing');
+ //require('./album');
+ //require('./collection');
+ //require('./profile');
+ 
+ blocJams = angular.module('BlocJams', ['ui.router']);
+ 
+ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+   $locationProvider.html5Mode(true);
+ 
+   $stateProvider.state('landing', {
+     url: '/',
+     controller: 'Landing.controller',
+     templateUrl: '/templates/landing.html'
+   });
+ }]);
+ 
 
- angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+  blocJams.controller('Landing.controller', ['$scope', function($scope) {
+  $scope.title = "Bloc Jams";
   $scope.subText = "Turn the music up!";
+
   $scope.subTextClicked = function() {
      $scope.subText += '!';
    };
@@ -19,13 +34,12 @@
      '/images/album-placeholders/album-7.jpg',
      '/images/album-placeholders/album-8.jpg',
      '/images/album-placeholders/album-9.jpg',
-  ];
+   ];
 
-  $scope.title = "Bloc Jams";
-  $scope.albumShuffle = function(albumURLs) { //v1.0
+   $scope.shuffle = function(albumURLs) { //v1.0
     for(var j, x, i = $scope.albumURLs.length; i; j = Math.floor(Math.random() * i), x = $scope.albumURLs[--i], $scope.albumURLs[i] = $scope.albumURLs[j], $scope.albumURLs[j] = x);
     return $scope.albumURLs;
-};
-  
+    };
+
  }]);
 
