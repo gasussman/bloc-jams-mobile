@@ -1,4 +1,4 @@
- // Example Album
+  // Example Album
  var albumPicasso = {
    name: 'The Colors',
    artist: 'Pablo Picasso',
@@ -134,9 +134,15 @@
    }
  };
 
+<<<<<<< HEAD
    var updateSeekPercentage = function($seekBar, event) {
    var barWidth = $seekBar.width();
    var offsetX = event.pageX - $seekBar.offset().left;
+=======
+    var updateSeekPercentage = function($seekBar, event) {
+    var barWidth = $seekBar.width();
+    var offsetX = event.pageX - $seekBar.offset().left;
+>>>>>>> angular-landing-page
  
    var offsetXPercent = (offsetX  / $seekBar.width()) * 100;
    offsetXPercent = Math.max(0, offsetXPercent);
@@ -145,6 +151,7 @@
    var percentageString = offsetXPercent + '%';
    $seekBar.find('.fill').width(percentageString);
    $seekBar.find('.thumb').css({left: percentageString});
+<<<<<<< HEAD
  };
 
  var setupSeekBars = function() {
@@ -170,7 +177,36 @@
     });
  
   });
+=======
+>>>>>>> angular-landing-page
  };
+
+ var setupSeekBars = function() {
+ 
+   $seekBars = $('.player-bar .seek-bar');
+   $seekBars.click(function(event) {
+     updateSeekPercentage($(this), event);
+   });
+
+   $seekBars.find('.thumb').mousedown(function(event){
+    var $seekBar = $(this).parent();
+
+   
+ 
+    $(document).bind('mousemove.thumb', function(event){
+      updateSeekPercentage($seekBar, event);
+    });
+ 
+    //cleanup
+    $(document).bind('mouseup.thumb', function(){
+      
+
+      $(document).unbind('mousemove.thumb');
+      $(document).unbind('mouseup.thumb');
+    });
+ 
+  });
+ }; 
 
 // This 'if' condition is used to prevent the jQuery modifications
  // from happening on non-Album view pages.
@@ -178,7 +214,11 @@
  if (document.URL.match(/\/album.html/)) {
    // Wait until the HTML is fully processed.
    $(document).ready(function() {
+<<<<<<< HEAD
      changeAlbumView(albumGuardians);
+=======
+     changeAlbumView(albumGuardians)
+>>>>>>> angular-landing-page
      setupSeekBars();
     });
 
