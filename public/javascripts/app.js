@@ -228,6 +228,49 @@ require.register("scripts/album", function(exports, require, module) {
  
  };
 
+ var updateSeekPercentage = function($seekBar, event) {
+   var barWidth = $seekBar.width();
+   var offsetX = event.pageX - $seekBar.offset().left;
+ 
+   var offsetXPercent = (offsetX  / $seekBar.width()) * 100;
+   offsetXPercent = Math.max(0, offsetXPercent);
+   offsetXPercent = Math.min(100, offsetXPercent);
+ 
+   var percentageString = offsetXPercent + '%';
+   $seekBar.find('.fill').width(percentageString);
+   $seekBar.find('.thumb').css({left: percentageString});
+
+ }
+ 
+
+ var setupSeekBars = function() {
+ 
+   $seekBars = $('.player-bar .seek-bar');
+   $seekBars.click(function(event) {
+     updateSeekPercentage($(this), event);
+   });
+
+ $seekBars.find('.thumb').mousedown(function(event){
+    var $seekBar = $(this).parent();
+
+    $seekBar.addClass('no-animate');
+ 
+    $(document).bind('mousemove.thumb', function(event){
+      updateSeekPercentage($seekBar, event);
+    });
+ 
+    //cleanup
+    $(document).bind('mouseup.thumb', function(){
+      $seekBar.removeClass('no-animate');
+      $(document).unbind('mousemove.thumb');
+      $(document).unbind('mouseup.thumb');
+    });
+ 
+  });
+ 
+ }
+
+
 // This 'if' condition is used to prevent the jQuery modifications
  // from happening on non-Album view pages.
  //  - Use a regex to validate that the url has "/album" in its path.
@@ -239,15 +282,43 @@ require.register("scripts/album", function(exports, require, module) {
     $('.album-container img').click(function() {
       changeAlbumView(albumPicasso);
    });
-
+    setupSeekBars();
    });
  }
 });
 
 ;require.register("scripts/app", function(exports, require, module) {
-require("./landing");
-require("./collection");
-require('./album');
+ //require('./landing');
+ //require('./album');
+ //require('./collection');
+ //require('./profile');
+ 
+ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+  $scope.title = "Bloc Jams";
+  $scope.subText = "Turn the music up!";
+
+  $scope.subTextClicked = function() {
+     $scope.subText += '!';
+   };
+
+  $scope.albumURLs = [
+     '/images/album-placeholders/album-1.jpg',
+     '/images/album-placeholders/album-2.jpg',
+     '/images/album-placeholders/album-3.jpg',
+     '/images/album-placeholders/album-4.jpg',
+     '/images/album-placeholders/album-5.jpg',
+     '/images/album-placeholders/album-6.jpg',
+     '/images/album-placeholders/album-7.jpg',
+     '/images/album-placeholders/album-8.jpg',
+     '/images/album-placeholders/album-9.jpg',
+   ];
+
+   $scope.shuffle = function(albumURLs) { //v1.0
+    for(var j, x, i = $scope.albumURLs.length; i; j = Math.floor(Math.random() * i), x = $scope.albumURLs[--i], $scope.albumURLs[i] = $scope.albumURLs[j], $scope.albumURLs[j] = x);
+    return $scope.albumURLs;
+    };
+
+ }]);
 });
 
 ;require.register("scripts/collection", function(exports, require, module) {
@@ -338,6 +409,29 @@ $(document).ready(function() {
  
    $('.selling-points .point').hover(onHoverAction, offHoverAction);
  });
+});
+
+;require.register("scripts/profile", function(exports, require, module) {
+ // holds the name of our tab button container for selection later in the function
+ var tabsContainer = ".user-profile-tabs-container"
+ var selectTabHandler = function(event) {
+   $tab = $(this);
+   $(tabsContainer + " li").removeClass('active');
+   $tab.parent().addClass('active');
+   selectedTabName = $tab.attr('href');
+   console.log(selectedTabName);
+   $(".tab-pane").addClass('hidden');
+   $(selectedTabName).removeClass('hidden');
+   event.preventDefault();
+ };
+
+ if (document.URL.match(/\/profile.html/)) {
+   $(document).ready(function() {
+     var $tabs = $(tabsContainer + " a");
+     $tabs.click(selectTabHandler);
+     $tabs[0].click();
+   });
+ }
 });
 
 ;
