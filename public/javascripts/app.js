@@ -303,6 +303,11 @@ require.register("scripts/album", function(exports, require, module) {
      url: '/',
      controller: 'Landing.controller',
      templateUrl: '/templates/landing.html'
+   })
+   .state('song', {
+     url: '/song',
+     controller: 'Song.controller',
+     templateUrl: '/templates/song.html'
    });
  }]);
  
@@ -332,6 +337,11 @@ require.register("scripts/album", function(exports, require, module) {
     return $scope.albumURLs;
     };
 
+ }])
+
+  .controller('Song.controller', ['$scope', function($scope) {
+  $scope.subtext2 = "Song";
+  
  }]);
 
 
