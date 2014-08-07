@@ -8,6 +8,7 @@
     // Pushes the album information down and makes sure there's sufficient space at the bottom of the page
     margin-top: 45px;
     margin-bottom: 20px;
+    color: white;
    
     h3,  h4,  h5 {
       // Modifying the line height allows us to increase the spacing above and
@@ -36,6 +37,7 @@
   .table.album-song-listing {
     // Override the font for the entire table.
     font-weight: 300;
+    color: white;
    
   // Override the defaults that Bootstrap sets.
     td {
