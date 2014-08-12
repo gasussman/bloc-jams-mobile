@@ -238,6 +238,20 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
 
  });
 
+ blocJams.directive('helloThere', function() {
+  return {
+  templateUrl: '/templates/directives/clickme.html',
+  replace: true,
+  restrict: 'C',
+  link: function(scope, element) {
+   $(element).click(function(event) {
+    alert("You clicked me!");
+   });
+  }
+};
+});
+
+
 
 
 
