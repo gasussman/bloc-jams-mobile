@@ -293,11 +293,11 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
 
  }]);
 
- blocJams.directive('helloThere', function() {
+ blocJams.directive('clickMeMe', function() {
   return {
   templateUrl: '/templates/directives/clickme.html',
   replace: true,
-  restrict: 'C',
+  restrict: 'EAC',
   link: function(scope, element) {
    $(element).click(function(event) {
     alert("You clicked me!");
