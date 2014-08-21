@@ -51,9 +51,13 @@
    });
 
  }]);
+
+blocJams.controller('CollapseDemoCtrl', ['$scope', function CollapseDemoCtrl($scope) {
+  $scope.isCollapsed = false;
+}]);
  
 
-  blocJams.controller('Landing.controller', ['$scope', function($scope) {
+ blocJams.controller('Landing.controller', ['$scope', function($scope) {
   $scope.title = "Bloc Jams";
   $scope.subText = "Turn the music up!";
 

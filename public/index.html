@@ -25,9 +25,21 @@
            <a ui-sref='landing' class='logo navbar-left'>
              <img src="/images/blocjams.png">
            </a>
-         </div>
+           <div ng-controller="CollapseDemoCtrl">
+           <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+          <i class='icon-collapse'></i>
+          </button>
+          <div class= 'responsive-nav' collapse="isCollapsed">
+           
+              <a><div>Library</div></a>
+              <a><div>Album</div></a>
+              <a><div>Profile</div></a>
+            
+          </div>
+        </div>
+           </div>
          <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref='collection'>Library</a></li>
+          <li><a class="library" ui-sref='collection'>Library</a></li>
          </ul>
        </div>
      </nav> 
