@@ -39,3 +39,21 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+   
+   .navbar-right {
+    display: none;
+   }
+
+   .btn-navbar {
+    height: 75px;
+    width: 75px;
+    float: right;
+    display: block;
+   }
+
+  /* Landing Page and Global Styles */
+
+  
+}

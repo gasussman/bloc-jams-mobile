@@ -341,11 +341,11 @@ require.register("scripts/album", function(exports, require, module) {
      templateUrl: '/templates/song.html'
    });
 
+
+
  }]);
 
-blocJams.controller('CollapseDemoCtrl', ['$scope', function CollapseDemoCtrl($scope) {
-  $scope.isCollapsed = false;
-}]);
+
  
 
  blocJams.controller('Landing.controller', ['$scope', function($scope) {
@@ -665,6 +665,8 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
   }
 };
 });
+
+
 
 
 

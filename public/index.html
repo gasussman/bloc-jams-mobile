@@ -20,29 +20,30 @@
   </head>
    <body>   
      <nav class="player-header-nav navbar">
-       <div class="container">
-         <div class='navbar-header'> <!-- Nav Bar -->
-           <a ui-sref='landing' class='logo navbar-left'>
-             <img src="/images/blocjams.png">
-           </a>
-           <div ng-controller="CollapseDemoCtrl">
-           <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
-          <i class='icon-collapse'></i>
-          </button>
-          <div class= 'responsive-nav' collapse="isCollapsed">
-           
-              <a><div>Library</div></a>
-              <a><div>Album</div></a>
-              <a><div>Profile</div></a>
-            
-          </div>
-        </div>
+      <div class="container" ><!-- Nav Bar -->
+         <div class='navbar-header'>
+              <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar">
+                <i class='fa fa-play'></i>
+              </a>
+              
+              <a ui-sref='landing' class='logo navbar-left'>
+                <img src="/images/blocjams.png">
+              </a>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref='collection'>Library</a></li>
+              </ul>
+                      
+              <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
+                  <ul class='nav'>
+                      <li><a ui-sref='collection'>Library</a></li>
+                      <li><a ui-sref='album'>Album</a></li>
+                      <li><a ui-sref='song'>Profile</a></li>
+                  </ul>
+              </div>
            </div>
-         <ul class="nav navbar-nav navbar-right">
-          <li><a class="library" ui-sref='collection'>Library</a></li>
-         </ul>
        </div>
-     </nav> 
+  </nav> 
     <!-- Render templates here -->
      <div ui-view></div>
   </body> 
