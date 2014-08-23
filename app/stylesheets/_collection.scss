@@ -9,12 +9,14 @@
     font-size: 16px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.6);
+    font-family: 'Oswald', sans-serif;
    
     a {
       color: rgba(255, 255, 255, 0.6);
   
       .album-name {
         color: white;
+        font-family: 'Oswald', sans-serif;
       }
     } 
   }
@@ -35,7 +37,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     z-index: 10;
   }
  
@@ -49,7 +51,7 @@
   .collection-overlay-button {
     font-size: 20px;
     background-color: white;
-    color: #d2287b;
+    color: #E8491B;
     border-radius: 50% 50%;
     display: inline-block;
     width: 42px;
@@ -59,7 +61,7 @@
   .collection-overlay-button:hover {
     cursor: pointer;
     color: white;
-    background-color: #d2287b;
+    background-color: #E8491B;
   }
  
   .collection-overlay-button i {

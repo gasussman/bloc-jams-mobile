@@ -10,21 +10,20 @@
   }
 
   body {
-    font-family: 'Open Sans';
     color: white;
     min-height: 100%;
-    background: -webkit-radial-gradient(  #2b1339, #380c77);
-    background: radial-gradient(   #2b1339, #380c77);
+    background: -webkit-radial-gradient(  #FDB978, #E8491B);
+    background: radial-gradient(   #FDB978, #E8491B);
     padding-bottom: 150px;
   }
 
   body.landing {
-    background: #5B5579;
+    background: #000;
     padding-bottom: 0;
   }
 
 .player-header-nav {
-  background-color: rgba(123, 70, 163, .9);
+  background-color: rgba(0, 0, 0, .9);
   .navbar-nav {
     a {
       line-height: 45px;
@@ -32,19 +31,29 @@
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 1.2;
+      font-family:'Oswald', sans-serif;
  
       &:hover {
-         color: rgba(123, 70, 163, .9);
+         color: rgba(0, 0, 0, .9);
       }
     }
   }
 }
 
+@media screen and (min-width: 769px) {
+
+  .navbar-header .btn-navbar {
+      display: none;
+    }
+  .navbar-header li {
+      display: block;
+    }
+  }
+
+
 @media screen and (max-width: 768px) {
    
-   .navbar-right {
-    display: none;
-   }
+
 
    .btn-navbar {
     height: 75px;
@@ -54,6 +63,9 @@
    }
 
   /* Landing Page and Global Styles */
-
+.fa-navicon {
+  color: white;
+  margin-top: 8px;
+}
   
 }

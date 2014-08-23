@@ -1,15 +1,24 @@
 
 
  .hero-content {
-    background-color: #2F1D57;
-    padding: 100px 0;
-    background: #2F1D57;
+    background-color: #E8491B;
+    padding: 50px 0;
+    background: #E8491B;
     color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 
     h1 {
       font-size: 70px;
       margin-bottom: 50px;
+      font-weight: 400;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    h3 {
       font-weight: 300;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 2px 2px 4px #000000;
     }
   }
  
@@ -18,40 +27,64 @@
     color: white;
   
    .point {
-
       h5 {
         font-size: 24px;
         font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
         height: 85px;
+        font-family: 'Oswald', sans-serif;
+        text-shadow: 2px 2px 4px #000000;
       }
  
       p {
         font-size: 14px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 300;
+        text-align: left;
       }
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+
+  hr {
+      display:none;
     }
   }
 
   @media screen and (max-width: 768px) {
 
+  hr {
+    margin: 0 30%;
+    border: 0;
+    height: 1px;
+    color: white;
+  }
 
   .hero-content {
-      h1, h3 {
+      h1 {
         text-align: left;
-        color: blue;       
+        padding-left: 15px;
+      }
+
+      h3 {
+        text-align: left;
+        padding-left: 30px;       
       }
     }
     .selling-points {
-      padding: 0;
+      margin-top: -65px;
       .point {
-        padding: 3em 0.75em;
+        padding: 2em 1em;
         h5 {
           height: 2.25em;
+          text-align: left;
+          padding-left: 30px;
         }
         p {
-          text-align: center;
+          text-align: left;
           font-size: 1.25em;
+          margin: 0 10%;
         }
       }
     }
@@ -61,6 +94,7 @@
         position: relative;
         display: block;
         margin: 30px auto;
+
       }
     }
   

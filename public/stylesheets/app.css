@@ -1,12 +1,20 @@
 .hero-content {
-  background-color: #2f1d57;
-  padding: 100px 0;
-  background: #2f1d57;
-  color: white; }
+  background-color: #e8491b;
+  padding: 50px 0;
+  background: #e8491b;
+  color: white;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white; }
   .hero-content h1 {
     font-size: 70px;
     margin-bottom: 50px;
-    font-weight: 300; }
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 2px 2px 4px black; }
+  .hero-content h3 {
+    font-weight: 300;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 2px 2px 4px black; }
 
 .selling-points {
   padding: 100px 0;
@@ -14,26 +22,45 @@
   .selling-points .point h5 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    height: 85px; }
+    text-align: left;
+    height: 85px;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 2px 2px 4px black; }
   .selling-points .point p {
-    font-size: 14px; }
+    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    text-align: left; }
+
+@media screen and (min-width: 769px) {
+  hr {
+    display: none; } }
 
 @media screen and (max-width: 768px) {
   /* Collection View */
-  .hero-content h1, .hero-content h3 {
+  hr {
+    margin: 0 30%;
+    border: 0;
+    height: 1px;
+    color: white; }
+  .hero-content h1 {
     text-align: left;
-    color: blue; }
+    padding-left: 15px; }
+  .hero-content h3 {
+    text-align: left;
+    padding-left: 30px; }
   .selling-points {
-    padding: 0; }
+    margin-top: -65px; }
     .selling-points .point {
-      padding: 3em 0.75em; }
+      padding: 2em 1em; }
       .selling-points .point h5 {
-        height: 2.25em; }
+        height: 2.25em;
+        text-align: left;
+        padding-left: 30px; }
       .selling-points .point p {
-        text-align: center;
-        font-size: 1.25em; }
+        text-align: left;
+        font-size: 1.25em;
+        margin: 0 10%; }
   .landing-album-list {
     /* Example class added to style the album covers for mobile */ }
     .landing-album-list .album-cover {
@@ -54,7 +81,9 @@
 .album-header-information {
   margin-top: 45px;
   margin-bottom: 20px;
-  color: white; }
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300; }
   .album-header-information h3, .album-header-information h4, .album-header-information h5 {
     line-height: 150%; }
     .album-header-information h3 h3, .album-header-information h4 h3, .album-header-information h5 h3 {
@@ -69,7 +98,8 @@
 
 .table.album-song-listing {
   font-weight: 300;
-  color: white; }
+  color: white;
+  font-family: 'Oswald', sans-serif; }
   .table.album-song-listing td {
     padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.4); }
@@ -78,7 +108,7 @@
   text-align: center;
   font-size: 14px;
   background-color: white;
-  color: #d2287b;
+  color: #e8491b;
   border-radius: 50% 50%;
   display: inline-block;
   width: 28px;
@@ -89,7 +119,7 @@
 .album-song-button:hover {
   cursor: pointer;
   color: white;
-  background-color: #d2287b;
+  background-color: #e8491b;
   -webkit-transform: rotate(1080deg);
   transform: rotate(1080deg); }
 
@@ -114,11 +144,13 @@ td.song-number {
     .collection-album-container .caption p {
       font-size: 16px;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.6); }
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Oswald', sans-serif; }
       .collection-album-container .caption p a {
         color: rgba(255, 255, 255, 0.6); }
         .collection-album-container .caption p a .album-name {
-          color: white; }
+          color: white;
+          font-family: 'Oswald', sans-serif; }
   .collection-album-container img {
     max-width: 100%; }
   .collection-album-container .collection-album-image-container {
@@ -129,7 +161,7 @@ td.song-number {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     z-index: 10; }
   .collection-album-container .collection-overlay-content {
     position: absolute;
@@ -139,7 +171,7 @@ td.song-number {
   .collection-album-container .collection-overlay-button {
     font-size: 20px;
     background-color: white;
-    color: #d2287b;
+    color: #e8491b;
     border-radius: 50% 50%;
     display: inline-block;
     width: 42px;
@@ -147,7 +179,7 @@ td.song-number {
   .collection-album-container .collection-overlay-button:hover {
     cursor: pointer;
     color: white;
-    background-color: #d2287b; }
+    background-color: #e8491b; }
   .collection-album-container .collection-overlay-button i {
     line-height: 42px; }
   .collection-album-container .collection-overlay-button .fa-play {
@@ -341,37 +373,44 @@ html {
   height: 100%; }
 
 body {
-  font-family: 'Open Sans';
   color: white;
   min-height: 100%;
-  background: -webkit-radial-gradient(#2b1339, #380c77);
-  background: radial-gradient(#2b1339, #380c77);
+  background: -webkit-radial-gradient(#fdb978, #e8491b);
+  background: radial-gradient(#fdb978, #e8491b);
   padding-bottom: 150px; }
 
 body.landing {
-  background: #5b5579;
+  background: black;
   padding-bottom: 0; }
 
 .player-header-nav {
-  background-color: rgba(123, 70, 163, 0.9); }
+  background-color: rgba(0, 0, 0, 0.9); }
   .player-header-nav .navbar-nav a {
     line-height: 45px;
     color: white;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1.2; }
+    letter-spacing: 1.2;
+    font-family: 'Oswald', sans-serif; }
     .player-header-nav .navbar-nav a:hover {
-      color: rgba(123, 70, 163, 0.9); }
+      color: rgba(0, 0, 0, 0.9); }
+
+@media screen and (min-width: 769px) {
+  .navbar-header .btn-navbar {
+    display: none; }
+  .navbar-header li {
+    display: block; } }
 
 @media screen and (max-width: 768px) {
   /* Landing Page and Global Styles */
-  .navbar-right {
-    display: none; }
   .btn-navbar {
     height: 75px;
     width: 75px;
     float: right;
-    display: block; } }
+    display: block; }
+  .fa-navicon {
+    color: white;
+    margin-top: 8px; } }
 
 @media screen and (max-width: 768px) {
   /* Landing Page and Global Styles */

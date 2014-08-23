@@ -9,6 +9,8 @@
     margin-top: 45px;
     margin-bottom: 20px;
     color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
    
     h3,  h4,  h5 {
       // Modifying the line height allows us to increase the spacing above and
@@ -38,6 +40,7 @@
     // Override the font for the entire table.
     font-weight: 300;
     color: white;
+    font-family: 'Oswald', sans-serif;
    
   // Override the defaults that Bootstrap sets.
     td {
@@ -50,7 +53,7 @@
     text-align: center;
     font-size: 14px;
     background-color: white;
-    color: #d2287b;
+    color: #E8491B;
     border-radius: 50% 50%;
     display: inline-block;
     width: 28px;
@@ -61,7 +64,7 @@
   .album-song-button:hover {
     cursor: pointer;
     color: white;
-    background-color: #d2287b;
+    background-color: #E8491B;
     -webkit-transform: rotate(1080deg);
     transform: rotate(1080deg); 
   }
