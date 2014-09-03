@@ -73,3 +73,15 @@
   }
 
 }
+
+@media screen and (max-width: 991px) {
+  .collection-album-container {
+.collection-album-image-overlay {
+    width: 280px;
+  }
+.collection-overlay-content {
+    bottom: 30px;
+  }
+}
+}
+

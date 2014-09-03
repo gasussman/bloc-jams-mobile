@@ -1,5 +1,4 @@
 
-
  .hero-content {
     background-color: #E8491B;
     padding: 50px 0;
@@ -14,12 +13,12 @@
       font-weight: 400;
       font-family: 'Oswald', sans-serif;
       text-shadow: 2px 2px 4px #000000;
-    }
+      }
     h3 {
       font-weight: 300;
       font-family: 'Oswald', sans-serif;
       text-shadow: 2px 2px 4px #000000;
-    }
+      }
   }
  
   .selling-points {
@@ -45,6 +44,63 @@
     }
   }
 
+  .album-images > img {
+    width: 280px;
+    height: 280px;
+    margin-left: -15px;
+  }
+
+  .flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 280px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+  background-color: black;
+  width: 100%;
+    
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+
+.landing-album-list {
+    margin-top: -50px;
+  }
+    
+  
+
   @media screen and (min-width: 769px) {
 
   hr {
@@ -53,13 +109,6 @@
   }
 
   @media screen and (max-width: 768px) {
-
-  hr {
-    margin: 0 30%;
-    border: 0;
-    height: 1px;
-    color: white;
-  }
 
   .hero-content {
       h1 {
@@ -72,8 +121,16 @@
         padding-left: 30px;       
       }
     }
+
     .selling-points {
       margin-top: -65px;
+      hr {
+          margin-left: 25%;
+          margin-right: 25%;   
+          height: 1px;
+          color: white;
+          padding: 10px 0;
+        }
       .point {
         padding: 2em 1em;
         h5 {
@@ -85,27 +142,20 @@
           text-align: left;
           font-size: 1.25em;
           margin: 0 10%;
-        }
-      }
-    }
-    .landing-album-list {
-      /* Example class added to style the album covers for mobile */
-      .album-cover {
-        position: relative;
-        display: block;
-        margin: 30px auto;
-
+        }  
       }
     }
   
 
   /* Collection View */
 
-  .collection-album-container {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 280px; /* Width of the album image. */
-  }
+  
 }
 
+@media screen and (max-width: 991px) {
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 280px;
+}
+}

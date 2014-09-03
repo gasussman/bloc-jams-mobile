@@ -3,7 +3,7 @@
 @import "collection";
 @import "player_bar";
 @import "buttons";
-@import "profile";
+@import "user";
 
  html {
     height: 100%;
@@ -19,7 +19,7 @@
 
   body.landing {
     background: #000;
-    padding-bottom: 0;
+    padding-bottom: 50px;
   }
 
 .player-header-nav {
@@ -52,14 +52,13 @@
 
 
 @media screen and (max-width: 768px) {
-   
-
 
    .btn-navbar {
     height: 75px;
     width: 75px;
     float: right;
     display: block;
+    text-align: center;
    }
 
   /* Landing Page and Global Styles */

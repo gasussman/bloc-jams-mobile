@@ -1,23 +1,23 @@
 <div class='hero-content'> <!-- Hero content -->
    <div class='container'>
-     <h1 ng_click="shuffle()"> {{ title }} </h1>
-     <h3 ng_click="subTextClicked()"> {{ subText }} </h3>
+     <h1 class='animated fadeInLeftBig' ng_click="shuffle()"> {{ title }} </h1>
+     <h3 class='animated fadeInLeftBig' ng_click="subTextClicked()"> {{ subText }} </h3>
    </div>
  </div>
  
  <div class='selling-points container'> <!-- selling points -->
    <div class='row'>
-     <div class='point col-md-4'>
+     <div class='animated fadeInUpBig point col-sm-4'>
        <h5> Choose your music </h5>
        <p> The world is full of music, why should you have to listen to music that someone else chose? </p>
      </div>
      <hr>
-     <div class='point col-md-4'>
-       <h5> Unlimited streaming </h5>
+     <div class='animated fadeInUpBig point col-sm-4'>
+       <h5> Unlimited, streaming, ad-free </h5>
        <p> No arbitrary limits. No distractions </p>
      </div> 
      <hr>
-     <div class='point col-md-4'>
+     <div class='animated fadeInUpBig point col-sm-4'>
        <h5>Mobile enabled</h5>
        <p> Listen to your music on the go. This streaming service is available on all mobile platforms</p>
      </div>
@@ -27,8 +27,24 @@
  
  <div class="landing-album-list container">
    <div class="row">
-     <div class="col-md-4" ng-repeat="albumURL in albumURLs">
-       <img  ng-src="{{albumURL}}">
+     <div class="album-images col-md-4 col-xs-12" ng-repeat="albumURL in albumURLs">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <img ng-src="{{albumURL}}">
+          </div>
+          <div class="back">
+            <p>
+              <a class="album-name" ui-sref="album"> {{ album.name }} </a>
+              <br/>
+              <a ui-sref="album"> {{ album.artist }} </a>
+              <br/>
+              {{ album.songs.length }} songs
+              <br/>
+            </p>
+          </div>
+        </div>
+    </div>
      </div>
    </div>
  </div>

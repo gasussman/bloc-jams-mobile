@@ -32,17 +32,57 @@
     font-weight: 300;
     text-align: left; }
 
+.album-images > img {
+  width: 280px;
+  height: 280px;
+  margin-left: -15px; }
+
+.flip-container {
+  perspective: 1000; }
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg); }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 280px; }
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative; }
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/* front pane, placed above back */
+.front {
+  z-index: 2; }
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+  background-color: black;
+  width: 100%;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300; }
+
+.landing-album-list {
+  margin-top: -50px; }
+
 @media screen and (min-width: 769px) {
   hr {
     display: none; } }
 
 @media screen and (max-width: 768px) {
   /* Collection View */
-  hr {
-    margin: 0 30%;
-    border: 0;
-    height: 1px;
-    color: white; }
   .hero-content h1 {
     text-align: left;
     padding-left: 15px; }
@@ -51,6 +91,12 @@
     padding-left: 30px; }
   .selling-points {
     margin-top: -65px; }
+    .selling-points hr {
+      margin-left: 25%;
+      margin-right: 25%;
+      height: 1px;
+      color: white;
+      padding: 10px 0; }
     .selling-points .point {
       padding: 2em 1em; }
       .selling-points .point h5 {
@@ -60,19 +106,12 @@
       .selling-points .point p {
         text-align: left;
         font-size: 1.25em;
-        margin: 0 10%; }
-  .landing-album-list {
-    /* Example class added to style the album covers for mobile */ }
-    .landing-album-list .album-cover {
-      position: relative;
-      display: block;
-      margin: 30px auto; }
-  .collection-album-container {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 280px;
-    /* Width of the album image. */ } }
+        margin: 0 10%; } }
+
+@media screen and (max-width: 991px) {
+  .flip-container, .front, .back {
+    width: 320px;
+    height: 280px; } }
 
 .album-header-container {
   margin-top: 55px;
@@ -185,6 +224,12 @@ td.song-number {
   .collection-album-container .collection-overlay-button .fa-play {
     padding-left: 5px; }
 
+@media screen and (max-width: 991px) {
+  .collection-album-container .collection-album-image-overlay {
+    width: 280px; }
+  .collection-album-container .collection-overlay-content {
+    bottom: 30px; } }
+
 .player-bar {
   position: fixed;
   bottom: 0;
@@ -198,15 +243,11 @@ td.song-number {
     color: white;
     cursor: pointer;
     text-decoration: none; }
-  .player-bar .container {
-    display: table;
-    padding: 0;
-    min-height: 100%; }
+  .player-bar .row > div {
+    padding-top: 50px; }
   .player-bar .left-controls {
-    width: 25%;
     text-align: left; }
   .player-bar .right-controls {
-    width: 25%;
     text-align: right; }
   .player-bar .play-controls a {
     font-size: 20px;
@@ -217,21 +258,19 @@ td.song-number {
     margin-right: 60px;
     font-size: 30px; }
   .player-bar .currently-playing {
-    width: 50%;
-    text-align: center;
-    position: relative; }
+    text-align: center; }
     .player-bar .currently-playing .song-name, .player-bar .currently-playing .artist-name {
       text-align: center;
       font-size: 12px;
       margin: 0;
-      position: absolute;
+      position: relative;
       width: 100%;
       font-size: 16px;
       font-weight: 300; }
     .player-bar .currently-playing .song-name {
-      top: 20px; }
+      top: 30px; }
     .player-bar .currently-playing .artist-name {
-      bottom: 20px; }
+      bottom: 30px; }
   .player-bar .queue-toggle {
     display: inline-block;
     margin-left: 75px; }
@@ -294,6 +333,24 @@ td.song-number {
     height: 20px;
     margin-top: -10px;
     margin-left: -10px; }
+
+@media screen and (max-width: 991px) {
+  .seeks {
+    padding-left: 35%;
+    padding-right: 25%;
+    text-align: middle; }
+  .secondseek {
+    padding-left: 10%;
+    padding-right: 10%; }
+  .currently-playing song-name {
+    top: 0px; }
+  .player-bar .row > div {
+    padding-top: 25px; } }
+
+@media screen and (max-width: 510px) {
+  .seeks {
+    padding-left: 15%;
+    padding-right: 15%; } }
 
 .default-button {
   background-color: #d2287b;
@@ -381,7 +438,7 @@ body {
 
 body.landing {
   background: black;
-  padding-bottom: 0; }
+  padding-bottom: 50px; }
 
 .player-header-nav {
   background-color: rgba(0, 0, 0, 0.9); }
@@ -407,38 +464,11 @@ body.landing {
     height: 75px;
     width: 75px;
     float: right;
-    display: block; }
+    display: block;
+    text-align: center; }
   .fa-navicon {
     color: white;
     margin-top: 8px; } }
-
-@media screen and (max-width: 768px) {
-  /* Landing Page and Global Styles */
-  /* Collection View */
-  .player-header-nav.navbar .navbar-nav li {
-    text-align: center; }
-  .player-header-nav.navbar .hero-content h1, .player-header-nav.navbar .hero-content h3 {
-    text-align: left;
-    color: blue; }
-  .player-header-nav.navbar .selling-points {
-    padding: 0; }
-    .player-header-nav.navbar .selling-points .point {
-      padding: 3em 0.75em; }
-      .player-header-nav.navbar .selling-points .point h5 {
-        height: 2.25em; }
-      .player-header-nav.navbar .selling-points .point p {
-        text-align: center;
-        font-size: 1.25em; }
-  .player-header-nav.navbar .landing-album-list {
-    /* Example class added to style the album covers for mobile */ }
-    .player-header-nav.navbar .landing-album-list .album-cover {
-      position: relative; }
-  .collection-album-container {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 280px;
-    /* Width of the album image. */ } }
 
 
 /*# sourceMappingURL=app.css.map*/

@@ -1,9 +1,3 @@
- //require('./landing');
- //require('./album');
- //require('./collection');
- //require('./profile');
- 
- // Example album.
  var albumPicasso = {
    name: 'The Colors',
    artist: 'Pablo Picasso',
@@ -26,6 +20,12 @@
  blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
    $locationProvider.html5Mode(true);
 
+   $stateProvider.state('landing', {
+     url: '/',
+     controller: 'Landing.controller',
+     templateUrl: '/templates/landing.html'
+   });
+
    $stateProvider.state('collection', {
      url: '/collection',
      templateUrl: 'templates/collection.html',
@@ -37,12 +37,6 @@
      templateUrl: '/templates/album.html',
      controller: 'Album.controller'
    });
- 
-   $stateProvider.state('landing', {
-     url: '/',
-     controller: 'Landing.controller',
-     templateUrl: '/templates/landing.html'
-   });
 
    $stateProvider.state('song', {
      url: '/song',
@@ -50,7 +44,10 @@
      templateUrl: '/templates/song.html'
    });
 
-
+   $stateProvider.state('user', {
+     url: '/user',
+     templateUrl: '/templates/user.html'
+   });
 
  }]);
 
