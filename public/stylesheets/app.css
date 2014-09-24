@@ -1,7 +1,5 @@
 .hero-content {
-  background-color: #e8491b;
   padding: 50px 0;
-  background: #e8491b;
   color: white;
   border-top: 1px solid white;
   border-bottom: 1px solid white; }
@@ -32,24 +30,23 @@
     font-weight: 300;
     text-align: left; }
 
-.album-images > img {
-  width: 280px;
-  height: 280px;
-  margin-left: -15px; }
-
 .flip-container {
-  perspective: 1000; }
-
-/* flip the pane when hovered */
-.flip-container:hover .flipper, .flip-container.hover .flipper {
-  transform: rotateY(180deg); }
+  perspective: 1280;
+  -webkit-perspective: 1280; }
+  .flip-container:hover .flipper {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); }
 
 .flip-container, .front, .back {
-  width: 320px;
-  height: 280px; }
+  width: 390px;
+  height: 390px;
+  display: inline-block;
+  position: relative; }
 
 /* flip speed goes here */
 .flipper {
+  width: 390px;
+  height: 390px;
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative; }
@@ -74,8 +71,9 @@
   font-family: 'Oswald', sans-serif;
   font-weight: 300; }
 
-.landing-album-list {
-  margin-top: -50px; }
+.album-cover {
+  position: relative;
+  left: calc(50% - 200px); }
 
 @media screen and (min-width: 769px) {
   hr {

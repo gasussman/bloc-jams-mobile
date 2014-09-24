@@ -1,0 +1,84 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'chartjs', '--save' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 warn package.json bloc-rdio-skeleton@0.0.1 No README data
+5 warn package.json ansi-color@0.2.1 'repositories' (plural) Not supported. Please pick one as the 'repository' field
+6 warn package.json express-namespace@0.1.1 No repository field.
+7 warn package.json express-resource@1.0.0 No repository field.
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'chartjs', null ]
+10 verbose cache add name=undefined spec="chartjs" args=["chartjs",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'chartjs',
+11 verbose parsed url   path: 'chartjs',
+11 verbose parsed url   href: 'chartjs' }
+12 silly lockFile 72724107-chartjs chartjs
+13 verbose lock chartjs /Users/garrettsussman/.npm/72724107-chartjs.lock
+14 silly lockFile 72724107-chartjs chartjs
+15 silly lockFile 72724107-chartjs chartjs
+16 verbose addNamed [ 'chartjs', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 91685b43-chartjs chartjs@
+19 verbose lock chartjs@ /Users/garrettsussman/.npm/91685b43-chartjs.lock
+20 silly addNameRange { name: 'chartjs', range: '*', hasData: false }
+21 verbose url raw chartjs
+22 verbose url resolving [ 'https://registry.npmjs.org/', './chartjs' ]
+23 verbose url resolved https://registry.npmjs.org/chartjs
+24 info trying registry request attempt 1 at 16:26:49
+25 http GET https://registry.npmjs.org/chartjs
+26 http 404 https://registry.npmjs.org/chartjs
+27 verbose headers { date: 'Tue, 23 Sep 2014 23:26:50 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-lax1433-LAX',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1411514810.708901,VS0,VE45',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Tue, 23 Sep 2014 23:26:50 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-lax1433-LAX',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1411514810.708901,VS0,VE45',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 91685b43-chartjs chartjs@
+30 silly lockFile 91685b43-chartjs chartjs@
+31 error 404 404 Not Found: chartjs
+31 error 404
+31 error 404 'chartjs' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'bloc-rdio-skeleton'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Darwin 13.3.0
+33 error command "node" "/usr/local/bin/npm" "install" "chartjs" "--save"
+34 error cwd /Users/garrettsussman/bloc-vagrant/bloc-jams-mobile
+35 error node -v v0.10.29
+36 error npm -v 1.4.14
+37 error code E404
+38 verbose exit [ 1, true ]
