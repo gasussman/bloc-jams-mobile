@@ -49,6 +49,12 @@
      templateUrl: '/templates/user.html'
    });
 
+   $stateProvider.state('pie', {
+     url: '/pie',
+     controller: 'Pie.controller',
+     templateUrl: '/templates/directives/pie.html'
+   });
+
  }]);
 
 
@@ -148,6 +154,11 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
    });
  
   }]);
+
+ blocJams.controller('Pie.controller', ['$scope', 'Metric', function($scope, Metric) {
+    $scope.metric = Metric;
+
+ }]);
  
  blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
 
@@ -262,7 +273,7 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
    }
 
    return {
-     templateUrl: '/templates/directives/slider.html', // We'll create these files shortly.
+     templateUrl: '/templates/directives/slider.html', 
      replace: true,
      restrict: 'E',
      scope: {
@@ -359,17 +370,54 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
    }
  })
 
- blocJams.directive('clickMeMe', function() {
+ blocJams.service('Metric', ['$rootScope', function($rootScope) {
+  $rootScope.songPlays = [];
+
   return {
-  templateUrl: '/templates/directives/clickme.html',
-  replace: true,
-  restrict: 'EAC',
+    // Function that records a metric object by pushing it to our $rootScope array.
+    registerSongPlay: function(songObj) {
+      // Add time to event register.
+      var day = new Date();
+      songObj['playedAt'] = moment(day).format('MMMM Do YYYY, h:mm:ss a');
+
+      $rootScope.songPlays.push(songObj);
+    },
+    listSongsPlayed: function() {
+      var songs = [];
+      angular.forEach($rootScope.songPlays, function(song) {
+        // Check to make sure the song isn't added twice.
+        if (songs.indexOf(song.name) != -1) {
+          songs.push(song.name);
+        }
+      });
+      return songs;
+    }
+  };
+
+}]);
+
+blocJams.directive('fa-play', function() {
+  return {
+  restrict: 'C',
   link: function(scope, element) {
-   $(element).click(function(event) {
-    alert("You clicked me!");
-   });
+   element.bind( "click", function() {
+        Metric.registerSongPlay();
+     });
+   }
   }
-};
+});
+
+blocJams.directive('pie', function() {
+  return {
+    templateUrl: '/templates/directives/pie.html',
+    replace: true,
+    restrict: 'E',
+    link: function(scope, element, attributes) {
+      var ctx = $("#pie-chart").get(0).getContext("2d");
+
+      new Chart(ctx).Pie(attributes.pieData, options);
+    }
+  };
 });
 
 
