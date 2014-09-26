@@ -405,9 +405,11 @@ blocJams.directive('pie', ['Metric', function(Metric) {
     templateUrl: '/templates/directives/pie.html',
     replace: true,
     restrict: 'E',
+    scope: {pieData: '='},
     link: function(scope, element, attributes) {
       var ctx = $("#pie-chart").get(0).getContext("2d");
-      new Chart(ctx).Pie(eval(attributes.pieData), {});
+      console.log('charting ' + scope.pieData.length + ' songs');
+      new Chart(ctx).Pie(scope.pieData);
     }
   };
 }]);
