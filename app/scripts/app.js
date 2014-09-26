@@ -407,29 +407,7 @@ blocJams.directive('pie', ['Metric', function(Metric) {
     restrict: 'E',
     link: function(scope, element, attributes) {
       var ctx = $("#pie-chart").get(0).getContext("2d");
-      console.log(attributes.pieData.length);
-      new Chart(ctx).Pie(attributes.pieData, {});
+      new Chart(ctx).Pie(eval(attributes.pieData), {});
     }
   };
 }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
