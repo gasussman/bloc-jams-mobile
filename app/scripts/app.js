@@ -6,11 +6,11 @@
    albumArtUrl: '/images/album-placeholder.png',
  
    songs: [
-      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue' },
-      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green' },
-      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red' },
-      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink' },
-      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta' }
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#F7464A", highlight: "#FF5A5E", label: "Blue", value: 1 },
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#46BFBD", highlight: "#5AD3D1", label: "Green", value: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F7464A", highlight: "#FF5A5E", label: "Red"},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#F7464A", highlight: "#FF5A5E", label: "Pink"},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F7464A", highlight: "#FF5A5E", label: "Magenta"}
      ]
  };
  
@@ -49,10 +49,10 @@
      templateUrl: '/templates/user.html'
    });
 
-   $stateProvider.state('pie', {
-     url: '/pie',
-     controller: 'Pie.controller',
-     templateUrl: '/templates/directives/pie.html'
+   $stateProvider.state('analytics', {
+     url: '/analytics',
+     controller: 'Analytics.controller',
+     templateUrl: '/templates/analytics.html'
    });
 
  }]);
@@ -103,7 +103,7 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
    }
  }]);
 
- blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
+ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', 'Metric', function($scope, SongPlayer, Metric) {
    $scope.album = angular.copy(albumPicasso);
    var hoveredSong = null;
  
@@ -127,6 +127,8 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
 
    $scope.playSong = function(song) {
      SongPlayer.setSong($scope.album, song);
+     Metric.registerSongPlay(song);
+
     };
  
     $scope.pauseSong = function(song) {
@@ -155,12 +157,12 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
  
   }]);
 
- blocJams.controller('Pie.controller', ['$scope', 'Metric', function($scope, Metric) {
+ blocJams.controller('Analytics.controller', ['$scope', 'Metric', function($scope, Metric) {
     $scope.metric = Metric;
 
  }]);
  
- blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
+ blocJams.service('SongPlayer', [ '$rootScope', 'Metric', function($rootScope, Metric) {
 
   var currentSoundFile = null;
 
@@ -177,6 +179,8 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
      play: function() {
        this.playing = true;
        currentSoundFile.play();
+       var songObj = this.currentSong;
+       Metric.registerSongPlay(this.currentSong);
      },
      pause: function() {
        this.playing = false;
@@ -377,8 +381,8 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
     // Function that records a metric object by pushing it to our $rootScope array.
     registerSongPlay: function(songObj) {
       // Add time to event register.
-      var day = new Date();
-      songObj['playedAt'] = moment(day).format('MMMM Do YYYY, h:mm:ss a');
+      songObj['playedAt'] = new Date();
+
 
       $rootScope.songPlays.push(songObj);
     },
@@ -396,29 +400,20 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
 
 }]);
 
-blocJams.directive('fa-play', function() {
-  return {
-  restrict: 'C',
-  link: function(scope, element) {
-   element.bind( "click", function() {
-        Metric.registerSongPlay();
-     });
-   }
-  }
-});
-
-blocJams.directive('pie', function() {
+blocJams.directive('pie', ['Metric', function(Metric) {
   return {
     templateUrl: '/templates/directives/pie.html',
     replace: true,
     restrict: 'E',
     link: function(scope, element, attributes) {
       var ctx = $("#pie-chart").get(0).getContext("2d");
-
-      new Chart(ctx).Pie(attributes.pieData, options);
+      console.log(attributes.pieData.length);
+      new Chart(ctx).Pie(attributes.pieData, {});
     }
   };
-});
+}]);
+
+
 
 
 
