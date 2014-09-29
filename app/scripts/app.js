@@ -6,11 +6,11 @@
    albumArtUrl: '/images/album-placeholder.png',
  
    songs: [
-      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#F7464A", highlight: "#FF5A5E", label: "Blue", value: 1 },
-      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#46BFBD", highlight: "#5AD3D1", label: "Green", value: 2},
-      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F7464A", highlight: "#FF5A5E", label: "Red"},
-      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#F7464A", highlight: "#FF5A5E", label: "Pink"},
-      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F7464A", highlight: "#FF5A5E", label: "Magenta"}
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", label: "Blue", value: 0},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", label: "Green", value: 0},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", label: "Red", value: 0},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", label: "Pink", value: 0},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", label: "Magenta", value: 0}
      ]
  };
  
@@ -127,7 +127,7 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
 
    $scope.playSong = function(song) {
      SongPlayer.setSong($scope.album, song);
-     Metric.registerSongPlay(song);
+     
 
     };
  
@@ -382,9 +382,10 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
     registerSongPlay: function(songObj) {
       // Add time to event register.
       songObj['playedAt'] = new Date();
-
-
+      songObj['value'] += 1;
+      if (songObj['value'] === 1) {
       $rootScope.songPlays.push(songObj);
+    }
     },
     listSongsPlayed: function() {
       var songs = [];
@@ -412,4 +413,22 @@ blocJams.directive('pie', ['Metric', function(Metric) {
       new Chart(ctx).Pie(scope.pieData);
     }
   };
+}]);
+
+blocJams.directive('list', ['Metric', function(Metric) {
+  return {
+    templateUrl: '/templates/directives/list.html',
+    replace: true,
+    restrict: 'E',
+    link: function(scope, element, attributes) {
+      $("#song-list").append($compile("
+        <tr>
+          <td class=" + "'song-number col-md-1'>
+          <td class=" 
+          + "'col-md-9'> song.name </td><
+          td class=" + "'col-md-2'> {{ song.length | timecode }} </td>
+        </tr>"
+        )(scope));
+    }
+  }
 }]);
