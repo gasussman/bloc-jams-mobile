@@ -115,6 +115,10 @@
   margin-top: 55px;
   margin-bottom: 40px; }
 
+.album-image img {
+  height: 280px;
+  width: 280px; }
+
 .album-header-information {
   margin-top: 45px;
   margin-bottom: 20px;

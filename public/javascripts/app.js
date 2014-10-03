@@ -3675,19 +3675,98 @@ require.register("scripts/Chart", function(exports, require, module) {
  var albumPicasso = {
    name: 'The Colors',
    artist: 'Pablo Picasso',
-   label: 'Cubism',
+   style: 'Cubism',
    year: '1881',
-   albumArtUrl: '/images/album-placeholder.png',
+   albumArtUrl: '/images/album-placeholders/album-1.jpg',
+   color: "#3646F5",
+   highlight: "#848EF5",
+   id: 1,
  
    songs: [
-      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", label: "Blue", value: 0},
-      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", label: "Green", value: 0},
-      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", label: "Red", value: 0},
-      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", label: "Pink", value: 0},
-      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", label: "Magenta", value: 0}
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", id: 1},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", id: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", id: 3},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", id: 4},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", id: 5}
      ]
  };
+
+  var albumMonet = {
+   name: 'The Colors 2',
+   artist: 'Monet',
+   style: 'Cubism',
+   year: '1881',
+   albumArtUrl: '/images/album-placeholders/album-2.jpg',
+   color: "#35CF21", 
+   highlight: "#84E677",
+   id: 2,
  
+   songs: [
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", id: 1},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", id: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", id: 3},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", id: 4},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", id: 5}
+     ]
+ };
+
+  var albumRembrandt = {
+   name: 'The Colors 3',
+   artist: 'Rembrandt',
+   style: 'Cubism',
+   year: '1881',
+   albumArtUrl: '/images/album-placeholders/album-3.jpg',
+   color:"#F71E42", 
+   highlight: "#F57187",
+   id: 3,
+ 
+   songs: [
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", id: 1},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", id: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", id: 3},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", id: 4},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", id: 5}
+     ]
+ };
+
+  var albumPollak = {
+   name: 'The Colors 4',
+   artist: 'Pollak',
+   style: 'Cubism',
+   year: '1881',
+   albumArtUrl: '/images/album-placeholders/album-4.jpg',
+   color:"#FA7DE9", 
+   highlight: "#F5BAED",
+   id: 4,
+ 
+   songs: [
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", id: 1},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", id: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", id: 3},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", id: 4},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", id: 5}
+     ]
+ };
+
+  var albumMondrian = {
+   name: 'The Colors 5',
+   artist: 'Mondrian',
+   style: 'Cubism',
+   year: '1881',
+   albumArtUrl: '/images/album-placeholders/album-5.jpg',
+   color:"#F73AA8", 
+   highlight: "#FA7DCC",
+   id: 5,
+ 
+   songs: [
+      { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue', color:"#3646F5", highlight: "#848EF5", id: 1},
+      { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green', color: "#35CF21", highlight: "#84E677", id: 2},
+      { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red', color:"#F71E42", highlight: "#F57187", id: 3},
+      { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink', color:"#FA7DE9", highlight: "#F5BAED", id: 4},
+      { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta', color:"#F73AA8", highlight: "#FA7DCC", id: 5}
+     ]
+ };
+
 
  blocJams = angular.module('BlocJams', ['ui.router']);
  
@@ -3766,10 +3845,14 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
   
  }]);
 
- blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($scope, SongPlayer) {
+ blocJams.controller('Collection.controller', ['$scope','SongPlayer', 'Metric', function($scope, SongPlayer, Metric) {
    $scope.albums = [];
-   for (var i = 0; i < 33; i++) {
+   for (var i = 0; i < 6; i++) {
      $scope.albums.push(angular.copy(albumPicasso));
+     $scope.albums.push(angular.copy(albumMonet));
+     $scope.albums.push(angular.copy(albumRembrandt));
+     $scope.albums.push(angular.copy(albumPollak));
+     $scope.albums.push(angular.copy(albumMondrian));
    }
    
    $scope.playAlbum = function(album){
@@ -3832,8 +3915,8 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
   }]);
 
  blocJams.controller('Analytics.controller', ['$scope', 'Metric', function($scope, Metric) {
-    $scope.metric = Metric;
-
+    $scope.Metric = Metric;
+    
  }]);
  
  blocJams.service('SongPlayer', [ '$rootScope', 'Metric', function($rootScope, Metric) {
@@ -3854,7 +3937,10 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
        this.playing = true;
        currentSoundFile.play();
        var songObj = this.currentSong;
+       var albumObj = this.currentAlbum;
        Metric.registerSongPlay(this.currentSong);
+       Metric.listSongsPlayed(this.currentSong);
+       Metric.registerAlbumPlay(this.currentAlbum)
      },
      pause: function() {
        this.playing = false;
@@ -4049,17 +4135,18 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
  })
 
  blocJams.service('Metric', ['$rootScope', function($rootScope) {
-  $rootScope.songPlays = [];
-
+  $rootScope.songPlays = {};
+  $rootScope.albumPlays = {};
+  window.songPlays = $rootScope.songPlays;
+  window.albumPlays = $rootScope.albumPlays;
   return {
     // Function that records a metric object by pushing it to our $rootScope array.
     registerSongPlay: function(songObj) {
-      // Add time to event register.
-      songObj['playedAt'] = new Date();
-      songObj['value'] += 1;
-      if (songObj['value'] === 1) {
-      $rootScope.songPlays.push(songObj);
-    }
+      if ($rootScope.songPlays[songObj.id] === undefined) { 
+        $rootScope.songPlays[songObj.id] = {value:0, color: songObj.color, label: songObj.name}; 
+        }
+      $rootScope.songPlays[songObj.id].value +=1;
+
     },
     listSongsPlayed: function() {
       var songs = [];
@@ -4070,6 +4157,13 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
         }
       });
       return songs;
+    },
+
+    registerAlbumPlay: function(albumObj) {
+      if ($rootScope.albumPlays[albumObj.id] === undefined) { 
+        $rootScope.albumPlays[albumObj.id] = {value:0, color: albumObj.color, label: albumObj.name}; 
+        }
+      $rootScope.albumPlays[albumObj.id].value +=1;
     }
   };
 
@@ -4089,23 +4183,23 @@ blocJams.directive('pie', ['Metric', function(Metric) {
   };
 }]);
 
-blocJams.directive('list', ['Metric', function(Metric) {
+blocJams.directive('bar', ['Metric', function(Metric) {
   return {
-    templateUrl: '/templates/directives/list.html',
+    templateUrl: '/templates/directives/bar.html',
     replace: true,
     restrict: 'E',
+    scope: {barData: '='},
     link: function(scope, element, attributes) {
-      $("#song-list").append($compile("
-        <tr>
-          <td class=" + "'song-number col-md-1'>
-          <td class=" 
-          + "'col-md-9'> song.name </td><
-          td class=" + "'col-md-2'> {{ song.length | timecode }} </td>
-        </tr>"
-        )(scope));
+      var ctx2 = $("#bar-chart").get(0).getContext("2d");
+      console.log('charting ' + scope.barData.length + ' albums');
+      new Chart(ctx2).Bar(scope.barData);
     }
-  }
+  };
 }]);
+
+
+
+
 
 });
 
